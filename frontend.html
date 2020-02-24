@@ -1,0 +1,54 @@
+<style>
+b{
+    background-color:yellowgreen;
+}
+</style>
+
+<script>
+    function verzenden(){
+        var klas = {};
+        klas.lokaalnummer = getValueId("lokaalnummerText");
+        klas.aantalLeerlingen = getValueId("aantalLeerlingenText");
+        klas.afmetingen = getValueId("afmetingenText");
+        klas.docentnaam = getValueId("docentnaamText");
+        JSON.stringify(klas)
+
+
+        var xhr = new XMLHttpRequest();
+        
+        xhr.onreadystatechange = function(){
+            if (this.readyState)
+            console.log(this.responseText);
+            document.getElementById("mijniddiv").innerHTML
+        };
+
+
+        xhr.open("GET", "http://localhost:8082/leesKlas/" + lokaalnummer.value+ "/" + aantalLeerlingen.value + "/" + afmetingen.value + "/" + docentnaam.value, true);
+        xhr.send(); 
+        
+
+    }
+
+    function getValueId(id){
+        return document.getElementById(id).value
+    }
+
+</script>
+ 
+<br>
+<b> lokaalnummer </b>
+<input type=text id="lokaalnummerText">
+<br>
+<b> aantal leerlingen </b> 
+<input type=text id="aantalLeerlingenText">
+<br>
+<b> afmetingen </b> 
+<input type=text id="afmetingenText">
+<br>
+<b> docentnaam </b>
+<input type=text id="docentnaamText">
+<br>
+<input type=button value="voeg rij toe" onclick="verzenden()">
+
+<div id="mijniddiv"> mijn div</div>
+
