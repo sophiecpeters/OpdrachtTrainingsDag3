@@ -13,7 +13,7 @@ public class Klas {
     private String lokaalNr;
     private String aantalLeerlingen;
     private String afmetingen;
-    private String hoofdDocent;
+    private String docentNaam;
 
 
     public long getId() {
@@ -48,11 +48,11 @@ public class Klas {
         this.afmetingen = afmetingen;
     }
 
-    public String getHoofdDocent() {
-        return hoofdDocent;
+    public String getDocentNaam() {
+        return docentNaam;
     }
 
-    public void setHoofdDocent(String hoofdDocent) {
-        this.hoofdDocent = hoofdDocent;
+    public void setDocentNaam(String hoofdDocent) {
+        this.docentNaam = hoofdDocent;
     }
 }
